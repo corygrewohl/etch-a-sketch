@@ -11,7 +11,8 @@ body {
     height: 100vh;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -20,17 +21,79 @@ body {
     height: 512px;
     width: 512px;
 
-    display: grid;
-    grid-template-rows: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+
+    /* display: grid; */
+    /* grid-template-rows: repeat(16, 6.25%); */
+    /* grid-auto-rows: repeat(16, 6.25%); */
+    /* grid-template-rows: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px; */
     /* grid-template-rows: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px; */
 }
 
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+button {
+    height: 30px;
+    width: 300px;
+}
+
+#rgb {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, red, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, red, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, red, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, red, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+
+
+}
+
 .row {
-    display: grid;
+    display: flex;
+    flex: 1 0 auto;
     
-    grid-template-columns: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px;
+    /* grid-template-columns: repeat(16, 6.25%); */
+    /* grid-auto-columns: repeat(16,6.25%); */
+    /* grid-template-columns: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px; */
 }
 
 .cell {
     border: 1px solid black;
+    display: flex;
+    /* flex: 1; */
+    flex: 1 0 auto;
+}
+
+.slider {
+    appearance: none;
+    background-color: aquamarine;
+    width: 50vw;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 140, 255);
+    outline:invert;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(0, 140, 255);
+    outline:invert;
+    cursor: pointer;
+}
+
+.cellNumValue, #cellNum {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
