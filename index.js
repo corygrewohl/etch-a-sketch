@@ -6,6 +6,7 @@ const defaultSize = 16;
 
 let size = 16;
 let rgbToggle = 1;
+let color = '#000000'
 
 if(size == null){
     console.log('size is null')
@@ -33,6 +34,16 @@ slider.onchange = function() {
     container.innerHTML = '';
     gridMaker(size)
 }
+
+/**
+ * COLOR PICKER BUTTON
+ */
+const colorPicker = document.getElementById('picker')
+colorPicker.value = color
+
+colorPicker.addEventListener('input', () => {
+    color = colorPicker.value
+})
 
 /**
  * RGB BUTTON
@@ -68,19 +79,17 @@ resetBtn.addEventListener('click', () => {
     for (let i = 0; i < size; i++) {
     const row = document.createElement('div');
     row.className = 'row';
-    // row.style.gridTemplateColumns = 'repeat('
 
     for(let j = 0; j < size; j++){
         const cell = document.createElement('div');
         cell.className = 'cell';
         cell.id = i + '-' + j;
-        // cell.innerText = i * j;
         cell.addEventListener('mouseover', () => {
             if(rgbToggle == -1){
                 let rgbString = rgb(Math.random() * 256, Math.random() * 256, Math.random() * 256)
                 cell.style.background = rgbString;
             } else {
-                cell.style.background = 'black';
+                cell.style.background = color;
             }
         });
         row.appendChild(cell);
